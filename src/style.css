@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-size: 15px;
+    font-family: "Noto Sans Mono", monospace;
+    @apply transition-colors duration-75;
+  }
+}
+
+@layer components {
+  .search-input {
+    @apply w-60 mb-5 block;
+  }
+  .hoverable-link {
+    @apply text-sm font-semibold leading-6 text-gray-900 transition duration-300
+  }
+  .underline {
+    @apply block h-0.5 max-w-0 bg-gray-600 transition-all duration-500 group-hover:max-w-full
+  }
+  .sidebar-button {
+    @apply flex items-center gap-1 rounded-md p-2 font-normal hover:bg-gray-200
+  }
+  pre {
+    background: #002855 !important;
+    color: #ffff;
+    overflow: auto;
+    padding: 1rem;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.7rem !important;
+  }
+  code {
+    padding: 0.1rem;
+    background: #000 !important;
+    color: #ffff;
+  }
+}
