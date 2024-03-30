@@ -15,7 +15,7 @@ const Main = () => {
 
   return (
     <div
-      className={`h-screen gap-4 p-6 px-4 lg:grid lg:grid-cols-6 lg:overflow-hidden ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
+      className={`lg:h-screen gap-4 p-6 px-4 lg:grid lg:grid-cols-6 lg:overflow-hidden ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
     >
       <Header />
 
