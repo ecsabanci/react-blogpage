@@ -17,7 +17,7 @@ const Card = ({ data }) => {
       className={`mb-16 flex max-w-xl flex-col items-start justify-between border-b pb-10 ${isDarkTheme ? "border-gray-100" : "border-gray-200"}`}
     >
       <div className="group relative">
-        <h1 className="mt-3 font-semibold text-gray-900">
+        <h1 className="font-semibold text-gray-900">
           <Link to={data.href ? data.href : `article/${data.id}/${slug}`} className={`${isDarkTheme ? "text-gray-100" : "text-gray-900"}`}>
             <span className="absolute inset-0" />
             {data.title}

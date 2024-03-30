@@ -1,8 +1,8 @@
 import { CheckIcon } from "@heroicons/react/24/outline";
 
-const Home = () => {
+const Home = ({isDarkTheme}) => {
   return (
-    <div className="mx-auto w-1/2">
+    <div className={`mx-auto lg:w-1/2 ${isDarkTheme ? "text-gray-100" : "text-gray-900"}`}>
       <p className="mb-2 flex items-center text-lg font-bold">
         Hi! I'm Emre 👋
       </p>

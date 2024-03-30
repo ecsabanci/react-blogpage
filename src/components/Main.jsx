@@ -15,7 +15,7 @@ const Main = () => {
 
   return (
     <div
-      className={`lg:h-screen gap-4 p-6 px-4 lg:grid lg:grid-cols-6 lg:overflow-hidden ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
+      className={`lg:h-screen h-dvh overflow-x-hidden gap-4 p-6 px-4 lg:grid lg:grid-cols-6 lg:overflow-hidden ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
     >
       <Header />
 
@@ -26,7 +26,7 @@ const Main = () => {
             element={<Navigate to="/articles" replace={true} />}
           ></Route>
 
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home isDarkTheme={isDarkTheme} />} />
           <Route path="/aboutme" element={<Details />} />
           <Route
             path="/articles"

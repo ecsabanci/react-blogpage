@@ -30,9 +30,9 @@ const ArticleDetail = () => {
   };
 
   return (
-    <div className="mx-auto flex w-11/12 items-start gap-4">
+    <div className="mx-auto lg:flex w-11/12 items-start gap-4">
       <button
-        className="flex items-center gap-2 rounded-md bg-gray-800 px-2 py-1 font-medium"
+        className="flex mb-4 items-center gap-2 rounded-md bg-gray-800 px-2 py-1 font-medium"
         onClick={() => updateClapCount()}
       >
         <HeartIcon
@@ -42,7 +42,7 @@ const ArticleDetail = () => {
         <span className="text-white">{clapCount}</span>
       </button>
 
-      <div className="col-span-11">
+      <div className="col-span-11 break-words">
         {post ? (
           <div
             className={`${isDarkTheme ? "text-gray-100" : "text-gray-900"}`}
