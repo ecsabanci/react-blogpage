@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ArticlesContext } from "./ArticlesContext";
 import fetchTable from "../../utils/fetchTable";
-import supabase from "../../lib/supabaseClient";
+import supabase from "../../supabaseClient";
 
 export const ArticlesProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);

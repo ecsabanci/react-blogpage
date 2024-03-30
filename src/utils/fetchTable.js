@@ -1,4 +1,4 @@
-import supabase from "../lib/supaBaseClient";
+import supabase from "../supabaseClient";
 
 const fetchTable = async ({ queryKey }) => {
   const table = queryKey[0];
