@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Details from "./Details";
 import Header from "./sidebar/Header";
 import Articles from "./Articles";
@@ -21,6 +21,11 @@ const Main = () => {
 
       <div className="col-span-5 lg:overflow-y-scroll lg:border-l-2">
         <Routes>
+          <Route
+            path="/"
+            element={<Navigate to="/articles" replace={true} />}
+          ></Route>
+
           <Route path="/home" element={<Home />} />
           <Route path="/aboutme" element={<Details />} />
           <Route
