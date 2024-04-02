@@ -1,15 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { ThemeContext } from "./contexts/ThemeContext";
 import { ArticlesContext } from "./contexts/ArticlesContext";
 import { useContext } from "react";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 
 const ArticleDetail = () => {
   const { id } = useParams();
   const [clapCount, setClapCount] = useState(0);
   const { isDarkTheme } = useContext(ThemeContext);
   const { articles, updateViewOrClapCount } = useContext(ArticlesContext);
+
+  const navigate = useNavigate();
 
   const [post, setPost] = useState(null);
 
@@ -30,17 +33,20 @@ const ArticleDetail = () => {
   };
 
   return (
-    <div className="mx-auto lg:flex w-11/12 items-start gap-4">
-      <button
-        className="flex mb-4 items-center gap-2 rounded-md bg-gray-800 px-2 py-1 font-medium"
-        onClick={() => updateClapCount()}
-      >
-        <HeartIcon
-          className="h-6 w-6 text-pink-500 hover:scale-105"
-          aria-hidden="true"
-        />
-        <span className="text-white">{clapCount}</span>
-      </button>
+    <div className="mx-auto items-start gap-4 lg:flex lg:w-11/12">
+      <div className="my-8 lg:my-0 flex items-center justify-between">
+        <ArrowLongLeftIcon onClick={() => navigate(-1)} className={`h-6 w-6 lg:hidden ${isDarkTheme ? "text-gray-100" : "text-gray-900"}`} />
+        <button
+          className="flex items-center gap-2 rounded-md bg-gray-800 px-2 py-1 font-medium"
+          onClick={() => updateClapCount()}
+        >
+          <HeartIcon
+            className="h-6 w-6 text-pink-500 hover:scale-105"
+            aria-hidden="true"
+          />
+          <span className="text-white">{clapCount}</span>
+        </button>
+      </div>
 
       <div className="col-span-11 break-words">
         {post ? (

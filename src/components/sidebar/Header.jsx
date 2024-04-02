@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition, Switch } from "@headlessui/react";
 import {
   UserCircleIcon,
   Bars3Icon,
@@ -19,7 +19,7 @@ export default function Header() {
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header className="text-sm w-full lg:w-auto">
+    <header className="w-full text-sm lg:w-auto">
       <nav
         className="mb-4 flex flex-row-reverse justify-between lg:m-0 lg:h-full lg:flex-col"
         aria-label="Global"
@@ -67,15 +67,23 @@ export default function Header() {
           )}
         </button>
       </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel
-          className={`fixed inset-y-0 right-0 z-10 w-full overflow-y-auto border border-gray-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
+
+      <div className="relative">
+        {mobileMenuOpen ? (
+          <div
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed transition-opacity duration-300 inset-0 z-10 bg-gray-500 opacity-75"
+          />
+        ) : null}
+        <Transition
+          show={mobileMenuOpen}
+          enter="transition-all duration-300"
+          enterFrom="-bottom-full"
+          enterTo="bottom-0"
+          leave="transition-all duration-500"
+          leaveFrom="bottom-0"
+          leaveTo="-bottom-full"
+          className={`fixed bottom-0 left-0 z-20 flex w-full flex-col justify-end overflow-y-auto rounded-xl px-6 py-6 ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
         >
           <div className="flex items-start justify-between">
             <div className="flex gap-1 rounded-md p-1 font-medium">
@@ -92,20 +100,12 @@ export default function Header() {
                 </span>
               </p>
             </div>
-            <button
-              type="button"
-              className={`${isDarkTheme ? "text-white" : "text-stale"} -m-2.5 rounded-md p-2.5`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
           </div>
           <div className="mt-2 flex flex-col gap-2">
             <PopoverGroup isDarkTheme={isDarkTheme} />
           </div>
-        </Dialog.Panel>
-      </Dialog>
+        </Transition>
+      </div>
     </header>
   );
 }
