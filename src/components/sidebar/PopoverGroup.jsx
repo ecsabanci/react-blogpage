@@ -12,7 +12,7 @@ import { Popover } from "@headlessui/react";
 
 const PopoverGroup = ({ isDarkTheme }) => {
   const navLinks = [
-    { to: "/home", text: "Home", icon: <HomeIcon className="h-4 w-4" /> },
+    { to: "/", text: "Home", icon: <HomeIcon className="h-4 w-4" /> },
     {
       to: "/articles",
       text: "Writing",

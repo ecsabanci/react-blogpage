@@ -21,12 +21,7 @@ const Main = () => {
 
       <div className="col-span-5 lg:overflow-y-scroll lg:border-l-2">
         <Routes>
-          <Route
-            path="/"
-            element={<Navigate to="/articles" replace={true} />}
-          ></Route>
-
-          <Route path="/home" element={<Home isDarkTheme={isDarkTheme} />} />
+          <Route path="/" element={<Home isDarkTheme={isDarkTheme} />} />
           <Route path="/aboutme" element={<Details />} />
           <Route
             path="/articles"

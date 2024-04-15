@@ -36,7 +36,7 @@ const Home = ({isDarkTheme}) => {
         </li>
         <li className="mb-2 flex gap-1 items-center">
           {" "}
-          <CheckIcon className="h-4 w-4 text-blue-400" /> Problem Sliving Approaches
+          <CheckIcon className="h-4 w-4 text-blue-400" /> Problem Solving Approaches
         </li>
         <li className="mb-2 flex gap-1 items-center">
           {" "}

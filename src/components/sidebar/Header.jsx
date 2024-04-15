@@ -69,20 +69,28 @@ export default function Header() {
       </nav>
 
       <div className="relative">
-        {mobileMenuOpen ? (
-          <div
-            onClick={() => setMobileMenuOpen(false)}
-            className="fixed transition-opacity duration-300 inset-0 z-10 bg-gray-500 opacity-75"
-          />
-        ) : null}
         <Transition
           show={mobileMenuOpen}
-          enter="transition-all duration-300"
-          enterFrom="-bottom-full"
-          enterTo="bottom-0"
-          leave="transition-all duration-500"
-          leaveFrom="bottom-0"
-          leaveTo="-bottom-full"
+          enter="transition-opacity duration-300 ease-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-300 ease-in"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 z-10 bg-gray-900 opacity-75 transition-opacity"
+          />
+        </Transition>
+        <Transition
+          show={mobileMenuOpen}
+          enter="transition-transform duration-300 ease-out"
+          enterFrom="translate-y-full"
+          enterTo="translate-y-0"
+          leave="transition-transform duration-300 ease-in"
+          leaveFrom="translate-y-0"
+          leaveTo="translate-y-full"
           className={`fixed bottom-0 left-0 z-20 flex w-full flex-col justify-end overflow-y-auto rounded-xl px-6 py-6 ${isDarkTheme ? "bg-gray-900" : "bg-gray-100"}`}
         >
           <div className="flex items-start justify-between">
