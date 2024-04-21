@@ -37,14 +37,14 @@ const ArticleDetail = () => {
       <div className="my-8 lg:my-0 flex items-center justify-between">
         <ArrowLongLeftIcon onClick={() => navigate(-1)} className={`h-6 w-6 lg:hidden ${isDarkTheme ? "text-gray-100" : "text-gray-900"}`} />
         <button
-          className="flex items-center gap-2 rounded-md bg-gray-800 px-2 py-1 font-medium"
+          className="flex items-center gap-1 self-end rounded-md bg-gray-800 px-2 py-1 font-medium text-lime-500"
           onClick={() => updateClapCount()}
         >
           <HeartIcon
-            className="h-6 w-6 text-pink-500 hover:scale-105"
+            className="h-4 w-4 text-lime-500 hover:scale-105"
             aria-hidden="true"
           />
-          <span className="text-white">{clapCount}</span>
+          {clapCount ?? null}
         </button>
       </div>
 

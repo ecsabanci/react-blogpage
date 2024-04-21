@@ -22,7 +22,6 @@ const OnlineLinks = ({ isDarkTheme }) => {
           </svg>
           Github
         </aside>
-        <ArrowUpRightIcon className="h-4 w-4" aria-hidden="true" />
       </NavLink>
       <NavLink
         to="https://x.com/ecsabanci"
@@ -41,7 +40,6 @@ const OnlineLinks = ({ isDarkTheme }) => {
           </svg>
           Twitter
         </aside>
-        <ArrowUpRightIcon className="h-4 w-4" aria-hidden="true" />
       </NavLink>
       <NavLink
         to="https://linkedin.com/in/ecsabanci"
@@ -60,7 +58,6 @@ const OnlineLinks = ({ isDarkTheme }) => {
           </svg>
           LinkedIn
         </aside>
-        <ArrowUpRightIcon className="h-4 w-4" aria-hidden="true" />
       </NavLink>
       <NavLink
         to="https://instagram.com/ecsabanci"
@@ -79,7 +76,6 @@ const OnlineLinks = ({ isDarkTheme }) => {
           </svg>
           Instagram
         </aside>
-        <ArrowUpRightIcon className="h-4 w-4" aria-hidden="true" />
       </NavLink>
     </div>
   );
