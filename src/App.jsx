@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from 'react-hot-toast';
 import Main from "./components/Main";
 import { ThemeProvider } from "./components/contexts/ThemeProvider";
 import { ArticlesProvider } from "./components/contexts/ArticlesProvider";
@@ -17,6 +18,7 @@ const queryClient = new QueryClient({
 const App = () => {
   return (
     <BrowserRouter>
+      <Toaster/>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
           <ArticlesProvider>

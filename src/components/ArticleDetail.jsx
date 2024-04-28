@@ -1,10 +1,13 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { ThemeContext } from "./contexts/ThemeContext";
 import { ArticlesContext } from "./contexts/ArticlesContext";
 import { useContext } from "react";
-import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowLongLeftIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline";
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -34,8 +37,11 @@ const ArticleDetail = () => {
 
   return (
     <div className="mx-auto items-start gap-4 lg:flex lg:w-11/12">
-      <div className="my-8 lg:my-0 flex items-center justify-between">
-        <ArrowLongLeftIcon onClick={() => navigate(-1)} className={`h-6 w-6 lg:hidden ${isDarkTheme ? "text-gray-100" : "text-gray-900"}`} />
+      <div className="my-8 flex flex-col items-start justify-between gap-4 lg:my-0">
+        <ArrowLongLeftIcon
+          onClick={() => navigate(-1)}
+          className={`h-6 w-6 lg:hidden ${isDarkTheme ? "text-gray-100" : "text-gray-900"}`}
+        />
         <button
           className="flex items-center gap-1 self-end rounded-md bg-gray-800 px-2 py-1 font-medium text-lime-500"
           onClick={() => updateClapCount()}
@@ -46,6 +52,11 @@ const ArticleDetail = () => {
           />
           {clapCount ?? null}
         </button>
+        {Boolean(import.meta.env?.VITE_ISADMIN) && (
+          <NavLink to={`/update/${id}`}>
+            <PencilSquareIcon className="h-6 w-6 bg-green-500 text-white" />
+          </NavLink>
+        )}
       </div>
 
       <div className="col-span-11 break-words">

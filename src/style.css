@@ -43,3 +43,12 @@
     color: #ffff;
   }
 }
+
+
+.ql-toolbar.ql-snow {
+  position: sticky;
+  width: auto;
+  top: -25px;
+  z-index: 2;
+  background-color: #ffff !important;
+}

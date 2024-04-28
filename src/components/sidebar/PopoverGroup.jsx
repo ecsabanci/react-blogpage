@@ -1,6 +1,7 @@
 import {
   HomeIcon,
   PencilIcon,
+  PlusIcon,
   BookmarkIcon,
   ArrowDownOnSquareIcon,
 } from "@heroicons/react/20/solid";
@@ -12,22 +13,30 @@ import { Popover } from "@headlessui/react";
 
 const PopoverGroup = ({ isDarkTheme }) => {
   const navLinks = [
-    { to: "/", text: "Home", icon: <HomeIcon className="h-4 w-4" /> },
+    { to: "/", text: "Home", icon: <HomeIcon className="h-4 w-4" />, render: true },
     {
       to: "/articles",
       text: "Writing",
       icon: <PencilIcon className="h-4 w-4" />,
+      render: true
+    },
+    {
+      to: "/addarticle",
+      text: "Add Article",
+      icon: <PlusIcon className="h-4 w-4" />,
+      render: Boolean(import.meta.env?.VITE_ISADMIN)
     },
     {
       to: "/bookmarks",
       text: "Bookmarks",
       icon: <BookmarkIcon className="h-4 w-4" />,
+      render: true
     },
   ];
 
   const renderNavLinks = () =>
     navLinks.map((link, index) => (
-      <NavLink
+      link.render && <NavLink
         key={index}
         to={link.to}
         className={({ isActive }) =>
